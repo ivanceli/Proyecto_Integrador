@@ -3,13 +3,17 @@
     
 <!---->
     
-
+    <!--<div class="container align-right">-->
+    
     <div class="container align-right">
-<div class="row">
-    <div class="mbr-white col-lg-8 col-md-7 content-container">
+        <!--Esto estaba dentro de class row al principio-->
+     <div class="mbr-white col-lg-8 col-md-7 content-container">
         <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">Iniciar sesion</h1>
         
-    </div>
+     </div>
+
+<div class="row">
+
     <div class="col-lg-4 col-md-5">
     <div class="form-container">
         <div class="media-container-column" data-form-type="formoid">

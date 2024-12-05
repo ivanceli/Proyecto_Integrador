@@ -500,5 +500,51 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		
 		}
 
+		public function descargar_csv($id)
+		{
+			// Obtén los detalles de la venta
+			$ventas_detalle = $this->producto_model->get_ventas_detalle($id);
+			
+			// Asegúrate de que haya detalles de la venta
+			if (!$ventas_detalle) {
+				show_404(); // O manejar el error como prefieras
+			}
+		
+			// Configura el nombre del archivo
+			$filename = "detalle_venta_{$id}.csv";
+			
+			// Establece las cabeceras para la descarga
+			header('Content-Type: text/csv');
+			header('Content-Disposition: attachment; filename="' . $filename . '"');
+			
+			// Abre el flujo de salida
+			$output = fopen('php://output', 'w');
+			
+			// Escribe la cabecera
+			fputcsv($output, ['ID Venta', 'Fecha', 'Total']);
+			
+			// Escribe la información de la cabecera
+			fputcsv($output, [
+				$ventas_detalle[0]->id, 
+				$ventas_detalle[0]->fecha, 
+				$ventas_detalle[0]->total_venta
+			]);
+			
+			// Escribe un separador
+			fputcsv($output, []); // Fila vacía para separación
+			
+			// Escribe la cabecera de los detalles
+			fputcsv($output, ['Nombre Producto', 'Cantidad', 'Precio']);
+			
+			// Escribe los datos de la venta
+			foreach ($ventas_detalle as $detalle) {
+				fputcsv($output, [$detalle->descripcion, $detalle->cantidad, $detalle->precio]);
+			}
+			
+			// Cierra el flujo
+			fclose($output);
+			exit();
+		}
+		
 
 }

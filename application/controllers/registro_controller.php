@@ -79,7 +79,7 @@
 		$data['nombre'] = $session_data['nombre'];
 		
 		$this->load->view('Front/header_views', $data);
-		$this->load->view('Front/navbar_views', $data);
+		$this->load->view('Front/navbar_views2', $data);
 		$this->load->view('Registro');
 		$this->load->view('Front/footer_views');
 	}

@@ -3,6 +3,7 @@
 		<div class="rol">
 			<div class="col-md-12">
 		<h4>&copy;Siguenos en las redes sociales <i class="fab fa-facebook-f"></i>  <i class="fab fa-twitter">  </i> <i class="fab fa-instagram"></i> </h4>
+		<h4>© 2024 Las imágenes utilizadas son propiedad de Milkaut, Sancor, La Serenisima, Ilolay, Tregar, Nido y Manfrey y se usan bajo su respectiva licencia.</h4>
 	</div>
     </div>
 	</div>

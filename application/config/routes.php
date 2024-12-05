@@ -57,6 +57,7 @@ $route['comercializacion'] = 'Welcome/comercializacion';
 $route['info_de_contacto'] = 'Welcome/info_de_contacto';
 $route['terminos_de_uso'] = 'Welcome/terminos_de_uso';
 $route['catalogo'] = 'Welcome/catalogo';
+$route['nuestros_productos'] = 'Welcome/nuestros_productos';
 
 //rutas para crear usuario cliente
 $route['registro'] = 'registro_controller/registro';
@@ -122,7 +123,9 @@ $route['mostrar_datos']='usuario_controller/mostrar_datos';
 $route['usuariologeado_modifica/(:num)'] = 'usuario_controller/muestra_modificar2/$1';
 $route['verifico_modificausuariologeado/(:num)']='usuario_controller/modificar_usuario_logeado/$1';
 
-
+//rutas para los reportes estadisticos
+$route['cargarventas']='producto_controller/listar_ventas';
+$route['muestradetalle/(:num)']='producto_controller/muestra_detalle/$1';
 
 
 

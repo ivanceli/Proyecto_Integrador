@@ -127,6 +127,7 @@ class Producto_model extends CI_Model{
         }
     }
     
+    /*
         function get_ventas_detalle($id)
     {
         $this->db->join('productos','productos.id = ventas_detalle.producto_id');   
@@ -141,4 +142,25 @@ class Producto_model extends CI_Model{
             return FALSE;
         }
     }
+        */
+    
+    // nueva funcion para que obtenga los detalles con la cabecera
+    function get_ventas_detalle($id)
+{
+    // Hacemos la unión con ventas_cabecera para obtener la información de la cabecera
+    $this->db->select('ventas_cabecera.*, ventas_detalle.*, productos.*');
+    $this->db->from('ventas_cabecera');
+    $this->db->join('ventas_detalle', 'ventas_detalle.venta_id = ventas_cabecera.id');
+    $this->db->join('productos', 'productos.id = ventas_detalle.producto_id');
+    $this->db->where('ventas_cabecera.id', $id);
+
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+        return $query->result(); // Devuelve todos los resultados
+    } else {
+        return FALSE;
+    }
+}
+
 } 

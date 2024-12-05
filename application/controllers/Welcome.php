@@ -144,5 +144,24 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('Front/footer_views');
     }  
+    
+	public function nuestros_productos()
+	{
+ 
+		 $data=array ('titulo'=>'Nuestros Productos');
+ 
+		 $session_data = $this->session->userdata('logged_in');
+		 $data['perfil_id'] = $session_data['perfil_id'];
+		 $data['nombre'] = $session_data['nombre'];
+ 
+		 $this->load->view('Front/header_views',$data);
+ 
+		 $this->load->view('Front/navbar_views2');
+ 
+		 $this->load->view('nuestros productos');
+ 
+		 $this->load->view('Front/footer_views');
+	 } 
+
 
 }    
