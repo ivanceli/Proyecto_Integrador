@@ -1,61 +1,58 @@
 <?php
-    $gran_total = 0;
+$gran_total = 0;
+$cart_check = $this->cart->contents();
 
-    // Calcula gran total si el carrito tiene elementos
-    if ($cart = $this->cart->contents()):
-        foreach ($cart as $item):
-            $gran_total = $gran_total + $item['subtotal'];
-        endforeach;
-    endif;
+// Calcula el gran total si el carrito tiene elementos
+if (!empty($cart_check)):
+    foreach ($cart_check as $item):
+        $gran_total += $item['subtotal'];
+    endforeach;
+endif;
 ?>
-        
-    <div id="bill_info">
-        
-        <?php // Crea formulario para guarda los datos de la venta
-            echo form_open("confirma_compra", ['class' => 'form-signin', 'role' => 'form']); 
-        ?>
-        <div align="center">
-            <h2 id="h2" align="center">Info de Compra</h2>
 
-            <table class="table" border="0" cellpadding="2px" >
+<div id="bill_info" class="container">
+    <?php if (!empty($cart_check)): ?>
+        <?php 
+        // Crea formulario para guardar los datos de la venta
+        echo form_open("confirma_compra", ['class' => 'form-signin', 'role' => 'form']); 
+        ?>
+        <div class="text-center">
+            <h2 id="h2">Información de Compra</h2>
+        </div>
+        <table class="table table-bordered">
+            <tbody>
                 <tr>
-                    <td>
-                        Total Compra:
-                    </td>
-                    <td>
-                        <strong>$<?php echo number_format($gran_total, 2); ?></strong>
-                    </td>
+                    <td><strong>Total Compra:</strong></td>
+                    <td>$<?php echo number_format($gran_total, 2); ?></td>
                 </tr>
                 <tr>
-                    <td>
-                        Nombre:
-                    </td>
-                    <td> 
-                        <?php echo($nombre) ?> 
-                    </td>
+                    <td><strong>Nombre:</strong></td>
+                    <td><?php echo htmlspecialchars($nombre); ?></td>
                 </tr>
                 <tr>
-                    <td>
-                        Apellido:
-                    </td>
-                    <td> 
-                        <?php echo($apellido) ?> 
-                    </td>
-                </tr>  
-                <tr>
-                    <td>
-                        Email:
-                    </td>
-                    <td> 
-                        <?php echo($email) ?> 
-                    </td>
+                    <td><strong>Apellido:</strong></td>
+                    <td><?php echo htmlspecialchars($apellido); ?></td>
                 </tr>
-                <?php echo form_hidden('total_venta', $gran_total); ?>
-            </table>
-            <br> 
-            <?php echo form_submit('confirmar', 'Confirmar',"class='btn btn-lg btn-primary'"); ?> 
-            <br> <br>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td><?php echo htmlspecialchars($email); ?></td>
+                </tr>
+            </tbody>
+        </table>
+        <?php 
+        // Campo oculto para enviar el total de la compra
+        echo form_hidden('total_venta', $gran_total); 
+        ?>
+        <div class="text-center">
+            <?php 
+            // Botón para confirmar la compra
+            echo form_submit('confirmar', 'Confirmar', "class='btn btn-lg btn-primary'"); 
+            ?>
         </div>
         <?php echo form_close(); ?>
-       
-    </div>
+    <?php else: ?>
+        <div class="alert alert-warning text-center">
+            <strong>El carrito está vacío.</strong> No puedes realizar una compra sin agregar productos.
+        </div>
+    <?php endif; ?>
+</div>

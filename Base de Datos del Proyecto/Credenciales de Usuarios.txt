@@ -1,9 +1,8 @@
-ADMINISTRADOR
-ic
+admin
+
 CLIENTE
 ivan celi
 
-SUPERADMIN
-iv 
+superadmin
 
 todos los password son 1234

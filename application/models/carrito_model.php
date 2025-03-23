@@ -20,5 +20,6 @@ class Carrito_model extends CI_Model {
 	{
 		$this->db->insert('ventas_detalle', $data);
 	}
+
        
 }

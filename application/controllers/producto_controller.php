@@ -475,7 +475,30 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			redirect('login', 'refresh');
             }
          }
-
+        
+		 //lista las ventas del usuario
+		 function listar_ventas_usuario()
+		 {
+			 if ($this->_veri_log()) {
+				 $data = array('titulo' => 'Ventas');
+		 
+				 $session_data = $this->session->userdata('logged_in');
+				 $data['perfil_id'] = $session_data['perfil_id'];
+				 $data['nombre'] = $session_data['nombre'];
+				 $usuario_id = $session_data['id']; // Obtenemos el id del usuario logueado
+		 
+				 // Pasamos el usuario_id al modelo para filtrar las ventas
+				 $dat = array('ventas_cabecera' => $this->producto_model->get_ventas_cabecera_usuario($usuario_id));
+		 
+				 $this->load->view('Front/header_views', $data);
+				 $this->load->view('Front/navbar_views2', $data);
+				 $this->load->view('muestraventasusuario', $dat);
+				 $this->load->view('Front/footer_views');
+			 } else {
+				 redirect('login', 'refresh');
+			 }
+		 }
+		 
 
 	    function muestra_detalle($id)
 		{

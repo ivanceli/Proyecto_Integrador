@@ -123,12 +123,14 @@ $route['mostrar_datos']='usuario_controller/mostrar_datos';
 $route['usuariologeado_modifica/(:num)'] = 'usuario_controller/muestra_modificar2/$1';
 $route['verifico_modificausuariologeado/(:num)']='usuario_controller/modificar_usuario_logeado/$1';
 
-//rutas para los reportes estadisticos
+//rutas para visualizar las ventas
 $route['cargarventas']='producto_controller/listar_ventas';
 $route['muestradetalle/(:num)']='producto_controller/muestra_detalle/$1';
+$route['cargarventasusuario']='producto_controller/listar_ventas_usuario';
 
-
-
+//rutas para los reportes estadisticos
+$route['ventas_por_mes']='reporte_controller/ventas_por_mes';
+$route['ventas_por_productos']='reporte_controller/ventas_por_productos';
 
 $route['translate_uri_dashes'] = FALSE;
 

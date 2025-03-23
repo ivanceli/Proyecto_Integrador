@@ -126,6 +126,23 @@ class Producto_model extends CI_Model{
             return FALSE;
         }
     }
+
+//recupera solo las ventas del usuario logueado
+    function get_ventas_cabecera_usuario($usuario_id)
+{
+    $this->db->select('ventas_cabecera.id, usuarios.nombre, usuarios.apellido, ventas_cabecera.fecha, ventas_cabecera.total_venta');
+    $this->db->from('ventas_cabecera');
+    $this->db->join('usuarios', 'ventas_cabecera.usuario_id = usuarios.id');
+    $this->db->where('ventas_cabecera.usuario_id', $usuario_id); // Filtramos por el usuario logueado
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+        return $query;
+    } else {
+        return FALSE;
+    }
+}
+
     
     /*
         function get_ventas_detalle($id)

@@ -93,7 +93,8 @@
         <li id="dropdown" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Bienvenido <?= $nombre ?></b></a></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;">
-          <a class="dropdown-item" href="<?php echo base_url('mostrar_datos');?>">Mis datos</a>
+          <a class="dropdown-item" href="<?php echo base_url('mostrar_datos');?>">Mis Datos</a>
+          <a class="dropdown-item" href="<?php echo base_url('cargarventasusuario');?>">Mis Compras Realizadas</a>
           <a class="dropdown-item" href="<?php echo base_url('cerrar_sesion');?>">Salir</a>
       </li>
 
@@ -155,15 +156,16 @@
 
       </li>
         <li id="dropdown" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Ver Reportes</b></a></a>
+        <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Reportes</b></a></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;">
-          <a class="dropdown-item" href="<?php echo base_url('');?>">De las Ventas</a>
-          <a class="dropdown-item" href="<?php echo base_url('');?>">De los Productos</a>
+                                                      <!-- nombre del controlador -->
+          <a class="dropdown-item" href="<?php echo base_url('ventas_por_mes');?>">Ventas por Mes</a>
+          <a class="dropdown-item" href="<?php echo base_url('ventas_por_productos');?>">Productos mas Vendidos</a>
       </li>
 
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link hvr-underline-from-center" href="<?php echo base_url('');?>">Realizar Copia de Seguridad</a>
-      </li>
+      </li> -->
 </nav> 
 
 

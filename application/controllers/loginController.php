@@ -26,7 +26,7 @@ class LoginController extends CI_Controller{
 		{	//En caso de que falle la validacion vuelve a cargar la pagina de Login
 			$data = array('titulo' => 'Error de datos');
 			$this->load->view('Front/header_views',$data);
-			$this->load->view('Front/navbar_views');
+			$this->load->view('Front/navbar_views2');
 			$this->load->view('login');
 			$this->load->view('Front/footer_views');
 		}
@@ -81,7 +81,7 @@ class LoginController extends CI_Controller{
 		$data['nombre'] = $session_data['nombre'];
 		
 		$this->load->view('Front/header_views', $data);
-		$this->load->view('Front/navbar_views', $data);
+		$this->load->view('Front/navbar_views2', $data);
 		$this->load->view('login');
 		$this->load->view('Front/footer_views');
 	}	

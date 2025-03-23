@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/mi_estilo.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/hover.css');?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <!--Esto es para realizar los reportes-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--Esto es para que aparezca el logo como icono en el head-->
     <link rel="shorcut icon" type="image/x-icon" href="assets/img/logotipo.jpg" whidth="100" height="100">
